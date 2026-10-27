@@ -5,7 +5,7 @@ import google.generativeai as genai
 st.title("나만의 맞춤형 PDF AI 비서 🤖")
 
 genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
-model = genai.GenerativeModel('gemini-1.5-flash')
+model = genai.GenerativeModel('gemini-pro')
 
 uploaded_file = st.file_uploader("PDF 파일을 업로드하세요", type="pdf")
 user_question = st.chat_input("문서에 대해 무엇이든 물어보세요!")
