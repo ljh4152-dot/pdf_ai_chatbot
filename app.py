@@ -6,14 +6,8 @@ st.title("나만의 맞춤형 PDF AI 비서 🤖")
 
 genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 
-# 내 API 키로 사용 가능한 모델을 자동으로 찾아 연결
-model_name = "gemini-1.5-flash"
-for m in genai.list_models():
-    if 'generateContent' in m.supported_generation_methods:
-        model_name = m.name
-        break
-
-model = genai.GenerativeModel(model_name)
+# 에러 메시지 안내에 따라 최신 모델로 변경
+model = genai.GenerativeModel('gemini-3.8-flash')
 
 uploaded_file = st.file_uploader("PDF 파일을 업로드하세요", type="pdf")
 user_question = st.chat_input("문서에 대해 무엇이든 물어보세요!")
